@@ -15,13 +15,13 @@ node {
   }
   
   stage('deploy') {
-    def webAppResourceGroup = '<myResourceGroup>'
-    def webAppName = '<app_name>'
-    def acrName = '<myRegistry>'
+    def webAppResourceGroup = 'jwResourceGroup'
+    def webAppName = 'jwjenapp1'
+    def acrName = 'jwcontainerregistry01.azurecr.io'
     def imageName = 'calculator'
     // generate version, it's important to remove the trailing new line in git describe output
     def version = sh script: 'git describe | tr -d "\n"', returnStdout: true
-    withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
+    withCredentials([azureServicePrincipal('2b8234a9-a435-4e0e-86be-f536dfc158ab')]) {
       // login Azure
       sh '''
         az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
