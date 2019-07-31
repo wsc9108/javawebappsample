@@ -15,8 +15,8 @@ node {
   }
   
   stage('deploy') {
-    def webAppResourceGroup = 'jwResourceGroup'
-    def webAppName = 'jwjenapp1'
+    def webAppResourceGroup = 'jw-wss-linuxapp01'
+    def webAppName = 'jw-jenkins-linuxapp02'
     def acrName = 'jwcontainerregistry01'
     def imageName = 'calculator'
     // generate version, it's important to remove the trailing new line in git describe output
